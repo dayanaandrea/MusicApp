@@ -1,20 +1,57 @@
 package com.example.musicapp
 
+import android.media.AudioManager
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
+import android.widget.SeekBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var seekBarTime: SeekBar
+    private lateinit var seekBarAudio: SeekBar
+    private lateinit var playPauseButton: ImageView
+    private lateinit var textViewTiempo1: TextView
+    private lateinit var textViewTiempo2: TextView
+    private var isPlaying = false
+    private val duracion = 235 // Duración de la canción en segundos
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        seekBarTime = findViewById(R.id.seekBarTime)
+        seekBarAudio = findViewById(R.id.seekBarAudio)
+        playPauseButton = findViewById(R.id.imageFilterButtonReproducir)
+        textViewTiempo1 = findViewById(R.id.textViewTiempo1)
+        textViewTiempo2 = findViewById(R.id.textViewTiempo2)
+
+
+        seekBarTime.progress = 25 // 25% de la duración
+        seekBarAudio.progress = 70 // 70% del volumen
+        textViewTiempo1.text = "0:25" // Tiempo avanzado
+        textViewTiempo2.text = "3:55" // Tiempo restante
+
+        // Configurar SeekBar de tiempo  //EXPLICACION POARA ENTENDERLO
+        seekBarTime.max = duracion
+        seekBarTime.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val minutes = progress / 60
+                val seconds = progress % 60
+                textViewTiempo1.text = String.format("%d:%02d", minutes, seconds)
+                textViewTiempo2.text = String.format("%d:%02d", (duracion - progress) / 60, (duracion - progress) % 60)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        // Botón Play/Pause
+        playPauseButton.setOnClickListener {
+            isPlaying = !isPlaying
+            playPauseButton.setImageResource(if (isPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play)
+            // Aquí puedes agregar lógica para reproducir o pausar la canción
         }
     }
 }
