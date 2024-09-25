@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="todo">TODO</string>
+    <string name="celtas_cortos">Celtas Cortos</string>
+    <string name="_20_de_abril">20 de Abril</string>
+    <string name="tiempo1">Tiempo1</string>
+    <string name="tiempo2">Tiempo2</string>
 </resources>
