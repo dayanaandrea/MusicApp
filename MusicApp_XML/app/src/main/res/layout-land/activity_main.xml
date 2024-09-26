@@ -15,10 +15,10 @@
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintVertical_bias="0.257"
         app:srcCompat="@drawable/song"
         tools:ignore="MissingConstraints" />
 
@@ -27,24 +27,79 @@
         android:layout_width="280dp"
         android:layout_height="24dp"
         android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
         app:layout_constraintEnd_toStartOf="@+id/imageViewSubirVolume"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageViewVolumeReducido"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.892"
+        app:layout_constraintVertical_bias="0.165"
         tools:ignore="MissingConstraints" />
+
+
+    <ImageView
+        android:id="@+id/imageViewSubirVolume"
+        android:layout_width="29dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seekBarAudio"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.166"
+        app:srcCompat="@drawable/alto_volumen"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageViewVolumeReducido"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarAudio"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/volumen_reducido"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
     <SeekBar
         android:id="@+id/seekBarTime"
         android:layout_width="283dp"
         android:layout_height="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageFilterButtonReproducir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewTiempo2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textViewTiempo1"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.894"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewTiempo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/tiempo1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarTime"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVolumeReducido"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewTiempo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tiempo2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seekBarTime"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubirVolume"
+        app:layout_constraintVertical_bias="0.539"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterButton
@@ -53,12 +108,11 @@
         android:layout_height="57dp"
         android:backgroundTint="@color/black"
         android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarAudio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageFilterButtonSiguiente"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageFilterButtonAnterior"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.816"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
         app:srcCompat="@android:drawable/ic_media_play"
         tools:ignore="ImageContrastCheck,MissingConstraints,DuplicateSpeakableTextCheck" />
 
@@ -66,30 +120,26 @@
         android:id="@+id/imageFilterButtonAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:backgroundTint="@color/black"
         android:contentDescription="@string/_20_de_abril"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarAudio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageFilterButtonReproducir"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageFilterView3"
         app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
-        app:layout_constraintVertical_bias="0.134"
         app:srcCompat="@android:drawable/ic_media_previous"
         tools:ignore="MissingConstraints,TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
-
 
     <androidx.constraintlayout.utils.widget.ImageFilterButton
         android:id="@+id/imageFilterButtonSiguiente"
         android:layout_width="28dp"
         android:layout_height="33dp"
         android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarAudio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageFilterButtonReproducir"
         app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
-        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@android:drawable/ic_media_next"
         tools:ignore="MissingConstraints,ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -100,11 +150,11 @@
         android:text="@string/_20_de_abril"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textViewName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.859"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewStrella"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVolumeReducido"
+        app:layout_constraintVertical_bias="0.831"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -113,25 +163,24 @@
         android:layout_height="wrap_content"
         android:text="@string/celtas_cortos"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTiempo1"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPuntitos"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textViewSongName"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.503"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVolumeReducido"
+        app:layout_constraintVertical_bias="0.609"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageViewStrella"
-        android:layout_width="23dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="116dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewPuntitos"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPuntitos"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewName"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.51"
+        app:layout_constraintStart_toEndOf="@+id/textViewSongName"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubirVolume"
+        app:layout_constraintVertical_bias="0.837"
         app:srcCompat="@drawable/calificacion_de_estrellas"
         tools:ignore="ContentDescription,MissingConstraints" />
 
@@ -139,68 +188,14 @@
         android:id="@+id/imageViewPuntitos"
         android:layout_width="29dp"
         android:layout_height="21dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarTime"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTiempo2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.51"
+        app:layout_constraintStart_toEndOf="@+id/textViewName"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSubirVolume"
+        app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/mas"
         tools:ignore="ContentDescription,MissingConstraints,UnknownId" />
-
-    <ImageView
-        android:id="@+id/imageViewSubirVolume"
-        android:layout_width="29dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/seekBarAudio"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
-        app:layout_constraintVertical_bias="0.614"
-        app:srcCompat="@drawable/alto_volumen"
-        tools:ignore="ContentDescription,MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageViewVolumeReducido"
-        android:layout_width="25dp"
-        android:layout_height="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seekBarAudio"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
-        app:layout_constraintVertical_bias="0.618"
-        app:srcCompat="@drawable/volumen_reducido"
-        tools:ignore="ContentDescription,MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textViewTiempo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tiempo1"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarAudio"
-        app:layout_constraintEnd_toStartOf="@+id/seekBarTime"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.559"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textViewTiempo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tiempo2"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarAudio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/seekBarTime"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.559"
-        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView"
@@ -210,7 +205,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageFilterView2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarAudio"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/cuota" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -221,7 +216,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageFilterView3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageFilterView"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarAudio"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/play" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -229,10 +224,10 @@
         android:layout_width="37dp"
         android:layout_height="29dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterButtonAnterior"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageFilterView2"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarAudio"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/song_lyrics" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,12 +33,13 @@ class MainActivity : AppCompatActivity() {
         textViewTiempo1.text = "0:25" // Tiempo avanzado
         textViewTiempo2.text = "3:55" // Tiempo restante
 
-        // Configurar SeekBar de tiempo  //EXPLICACION POARA ENTENDERLO
+        // Configurar SeekBar de tiempo
+        //E cogido ideas del siguiente video https://www.youtube.com/watch?v=aZdcrU_QGzo
         seekBarTime.max = duracion
         seekBarTime.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val minutes = progress / 60
-                val seconds = progress % 60
+                val seconds = progress % 60             //%02d  formar el int en dos digitos en vez de aparecer 1 aparece 01
                 textViewTiempo1.text = String.format("%d:%02d", minutes, seconds)
                 textViewTiempo2.text = String.format("%d:%02d", (duracion - progress) / 60, (duracion - progress) % 60)
             }
